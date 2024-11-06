@@ -1,4 +1,3 @@
-<!-- Coded by https://beproblemsolver.com  Visit for more such code -->
 <?php
 
 function santize($data)

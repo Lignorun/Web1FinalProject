@@ -1,4 +1,3 @@
-<!-- Coded by https://beproblemsolver.com  Visit for more such code -->
 <?php
 require_once("connect.php");
 require_once("function.php");
@@ -86,6 +85,5 @@ if (!isset($_SESSION['login_active'])) {
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<!-- Coded by https://beproblemsolver.com  Visit for more such code -->
 
 </html>
