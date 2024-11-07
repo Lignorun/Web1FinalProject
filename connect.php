@@ -1,25 +1,14 @@
+<?php
+$servername = getenv('DB_SERVER') ?: 'localhost';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '';
+$dbname = getenv('DB_NAME') ?: 'quiz_db';
 
-
-<!-- $servername = "MAHIMNA_MEHTA";
-$username = "root";
-$password = "";
-$dbname = "quiz_db";
-
+// Cria a conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Verifica a conexão
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} -->
-
-
-
-<?php
-$servername = "localhost";
-$dbname = "quiz_db";
-
-$conn = new mysqli($servername, NULL, NULL, $dbname);
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

@@ -13,8 +13,9 @@
 <body>
   <section class="main-section">
     <div class="container">
-
-      <?php if (isset($_SESSION['msg'])) : ?>
+      <?php
+      session_start();
+      if (isset($_SESSION['msg'])) : ?>
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
           <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header <?php echo $_SESSION['class']; ?>">
@@ -23,9 +24,8 @@
             </div>
             <div class="toast-body">
               <?php
-              $message = $_SESSION['msg'];
+              echo $_SESSION['msg'];
               unset($_SESSION['msg']);
-              echo $message;
               ?>
             </div>
           </div>
@@ -38,12 +38,12 @@
             <div class="img"></div>
             <div class="login-box p-5">
               <h2 class="pb-4">Login</h2>
-              <form action="" method="post">
+              <form action="login.php" method="post">
                 <div class="mb-4">
-                  <input type="email" class="form-control" placeholder="Enter Email address" name="email">
+                  <input type="email" class="form-control" placeholder="Enter Email address" name="email" required>
                 </div>
                 <div class="mb-4">
-                  <input type="password" class="form-control" placeholder="Enter Password" name="password">
+                  <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
                 </div>
                 <div class="d-grid gap-2">
                   <button type="submit" class="btn btn-primary" name="login">Login</button>
@@ -61,46 +61,6 @@
     </div>
   </section>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
-
-<?php
-require_once("connect.php");
-require_once("function.php");
-session_start();
-
-if (isset($_SESSION['login_active'])) {
-  header("Location: dashboard.php");
-  exit();
-} else {
-
-  if (isset($_POST['login'])) {
-    $email = santize($_POST['email']);
-    $inputpassword = santize($_POST['password']);
-    $password = md5($inputpassword);
-
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['login_active'] = [$row["name"], $row["email"]];
-        $_SESSION['msg'] = "Welcome to Dashboard";
-        $_SESSION['class'] = "text-bg-success";
-        header("Location: dashboard.php");
-        exit();
-      }
-    } else {
-      $_SESSION['msg'] = "Check Email & Password";
-      $_SESSION['class'] = "text-bg-danger";
-      header("Location: index.php");
-      exit();
-    }
-  }
-}
-
-?>
