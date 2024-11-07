@@ -1,13 +1,3 @@
-<?php
-require_once("connect.php");
-session_start();
-
-if (!isset($_SESSION['login_active'])) {
-  header("Location: index.php");
-  exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,3 +77,13 @@ if (!isset($_SESSION['login_active'])) {
 </body>
 
 </html>
+
+<?php
+require_once("connect.php");
+session_start();
+
+if (!isset($_SESSION['login_active'])) {
+  header("Location: index.php");
+  exit();
+}
+?>
