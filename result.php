@@ -1,3 +1,14 @@
+<?php
+require_once("connect.php");
+require_once("function.php");
+session_start();
+
+if (!isset($_SESSION['login_active'])) {
+  header("Location: index.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +22,6 @@
 </head>
 
 <body>
-
-
-<?php
-require_once("connect.php");
-require_once("function.php");
-session_start();
-
-if (!isset($_SESSION['login_active'])) {
-  header("Location: index.php");
-  exit();
-}
-?>
   <section class="main-section">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
@@ -82,5 +81,5 @@ if (!isset($_SESSION['login_active'])) {
 </body>
 
 
-</html>
 
+</html>

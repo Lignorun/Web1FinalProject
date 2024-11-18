@@ -1,3 +1,31 @@
+<?php
+require_once("connect.php");
+require_once("function.php");
+session_start();
+
+if (isset($_POST['signup'])) {
+  $name = santize($_POST['name']);
+  $email = santize($_POST['email']);
+  $inputpassword = santize($_POST['password']);
+
+  $password = md5($inputpassword);
+
+  $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password');";
+
+  if (mysqli_query($conn, $sql)) {
+    $_SESSION['msg'] = "You have Signed Up Successfully";
+    $_SESSION['class'] = "text-bg-success";
+    header("Location: index.php");
+    exit();
+  } else {
+    $_SESSION['msg'] = "Sign Up failed";
+    $_SESSION['class'] = "text-bg-danger";
+    header("Location: index.php");
+    exit();
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,31 +78,3 @@
 </body>
 
 </html>
-
-<?php
-require_once("connect.php");
-require_once("function.php");
-session_start();
-
-if (isset($_POST['signup'])) {
-  $name = santize($_POST['name']);
-  $email = santize($_POST['email']);
-  $inputpassword = santize($_POST['password']);
-
-  $password = md5($inputpassword);
-
-  $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password');";
-
-  if (mysqli_query($conn, $sql)) {
-    $_SESSION['msg'] = "You have Signed Up Successfully";
-    $_SESSION['class'] = "text-bg-success";
-    header("Location: index.php");
-    exit();
-  } else {
-    $_SESSION['msg'] = "Sign Up failed";
-    $_SESSION['class'] = "text-bg-danger";
-    header("Location: index.php");
-    exit();
-  }
-}
-?>

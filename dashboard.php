@@ -1,3 +1,13 @@
+<?php
+require_once("connect.php");
+session_start();
+
+if (!isset($_SESSION['login_active'])) {
+  header("Location: index.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,17 +21,6 @@
 </head>
 
 <body>
-
-<?php
-require_once("connect.php");
-session_start();
-
-if (!isset($_SESSION['login_active'])) {
-  header("Location: index.php");
-  exit();
-}
-?>
-
   <section class="main-section">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
@@ -87,5 +86,5 @@ if (!isset($_SESSION['login_active'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
 
+</html>
