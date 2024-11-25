@@ -1,56 +1,161 @@
-/* Coded by https://beproblemsolver.com  Visit for more such code */
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
+/* Coded by https://beproblemsolver.com Visit for more such code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- body {
-   font-size: 16px;
-   background-color: #f8f9fd;
- }
+body {
+  font-size: 16px;
+  background-color: #f8f9fd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
- .main-section {
-   padding: 0;
- }
+.main-section {
+  flex-grow: 1; /* Garante que a seção principal ocupe o espaço restante */
+}
 
- .box {
-   width: 100%;
-   overflow: hidden;
-   background: #fff;
-   border-radius: 5px;
-   box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
- }
+.box {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+}
 
- .img {
-   background-image: url(../img/bg-1.webp);
-   height: 200px;
- }
+.img {
+  background-image: url(../img/bg-1.webp);
+  height: 200px;
+}
 
- .img-2 {
-   background-image: url(../img/signup.webp);
-   height: 200px;
- }
+.img-2 {
+  background-image: url(../img/signup.webp);
+  height: 200px;
+}
 
- .form-control {
-   height: 48px;
-   background: #fff;
-   color: #000;
-   font-size: 16px;
-   border-radius: 5px;
-   -webkit-box-shadow: none;
-   box-shadow: none;
-   border: 1px solid rgba(0, 0, 0, 0.1);
- }
+.form-control {
+  height: 48px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 
- .btn.btn-primary {
-   background: #01d28e !important;
-   border: 1px solid #01d28e !important;
-   color: #fff !important;
- }
+.btn.btn-primary {
+  background: #01d28e !important;
+  border: 1px solid #01d28e !important;
+  color: #fff !important;
+}
 
- .btn.btn-primary-1 {
-   background: #029161 !important;
-   border: 1px solid #029161 !important;
-   color: #fff !important;
- }
+.btn.btn-primary-1 {
+  background: #029161 !important;
+  border: 1px solid #029161 !important;
+  color: #fff !important;
+}
+
+/* Estilo para o footer */
+#footer {
+  position: relative; /* Posição padrão */
+  width: 100%; /* Largura total */
+  background-color: #1a1a1a; /* Cor de fundo escura */
+  color: white; /* Cor do texto */
+  text-align: center; /* Alinhamento central do texto */
+  padding: 20px 0; /* Espaçamento superior e inferior */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Fonte mais moderna */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para um efeito elevado */
+  transition: transform 0.3s ease-out; /* Transição suave quando o footer aparecer */
+}
+
+/* Conteúdo do footer */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Padding lateral */
+}
+
+/* Estilo do texto */
+.footer-text {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #e0e0e0; /* Texto mais suave */
+  margin: 0;
+}
+
+/* Destaque para o nome do projeto e os desenvolvedores */
+.footer-text strong {
+  color: #f5a623;
+}
+
+.footer-text span {
+  font-weight: 400;
+}
+
+/* Estilo para os membros da equipe com os links */
+.team-members {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.team-members a {
+  color: #f5a623;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.team-members a:hover {
+  color: #fff;
+}
+
+.linkedin-icon {
+  width: 20px; /* Tamanho da imagem do LinkedIn */
+  height: 20px;
+  margin-right: 8px; /* Espaçamento entre a imagem e o nome */
+  background-color: transparent; /* Garantir que o fundo da imagem seja transparente */
+}
+
+/* Efeito para o footer quando aparecer */
+#footer.show {
+  display: block;
+  transform: translateY(0); /* Aparece de baixo para cima */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-text {
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+  }
+
+  .team-members {
+    font-size: 12px;
+  }
+}
+
+/* Mudança para quando o conteúdo for maior que a altura da janela */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que a altura mínima do corpo ocupe toda a tela */
+}
+
+.main-section {
+  flex-grow: 1; /* Permite que a seção principal cresça conforme necessário */
+}
+
+
+
+/* Mudança para quando o conteúdo for maior que a altura da janela */
+@media (min-height: 800px) {
+  #footer {
+    position: relative; /* Quando a página for grande, o footer ficará no final do conteúdo */
+    bottom: initial; /* Reseta a posição de `bottom` */
+  }
+}
