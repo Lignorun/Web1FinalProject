@@ -13,7 +13,7 @@
                         <img src="img/linkedin.png" alt="Jaspreet Singh LinkedIn" class="linkedin-icon">
                         Jaspreet Singh
                     </a>,
-                    <a href="https://www.linkedin.com/in/mahimna-manishbhai-xyz456/" target="_blank">
+                    <a href="https://www.linkedin.com/in/mahimnamehta/" target="_blank">
                         <img src="img/linkedin.png" alt="Mahimna Manishbhai LinkedIn" class="linkedin-icon">
                         Mahimna Manishbhai
                     </a>
