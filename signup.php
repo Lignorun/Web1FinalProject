@@ -13,18 +13,21 @@ if (isset($_POST['signup'])) {
   $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password');";
 
   if (mysqli_query($conn, $sql)) {
-    $_SESSION['msg'] = "You have Signed Up Successfully";
-    $_SESSION['class'] = "text-bg-success";
-    header("Location: index.php");
-    exit();
+    echo json_encode([
+      'status' => 'success',
+      'message' => 'You have Signed Up Successfully',
+      'class' => 'text-bg-success'
+    ]);
   } else {
-    $_SESSION['msg'] = "Sign Up failed";
-    $_SESSION['class'] = "text-bg-danger";
-    header("Location: index.php");
-    exit();
+    echo json_encode([
+      'status' => 'error',
+      'message' => 'Sign Up failed',
+      'class' => 'text-bg-danger'
+    ]);
   }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +39,7 @@ if (isset($_POST['signup'])) {
   <title>Quiz SignUp</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +51,7 @@ if (isset($_POST['signup'])) {
             <div class="img-2"></div>
             <div class="login-box p-5">
               <h2 class="pb-4">Sign Up</h2>
-              <form action="" method="post">
+              <form id="signup-form" action="" method="post">
                 <div class="mb-4">
                   <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
                 </div>
@@ -78,6 +82,36 @@ if (isset($_POST['signup'])) {
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      $('#signup-form').submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        // Collect the form data
+        var formData = $(this).serialize();
+
+        // Perform the AJAX request
+        $.ajax({
+          type: 'POST',
+          url: '', // Same file
+          data: formData,
+          dataType: 'json',
+          success: function(response) {
+            // Show success or error message
+            alert(response.message);
+            if (response.status === 'success') {
+              // Optionally, redirect or perform additional actions
+              window.location.href = 'index.php';
+            }
+          },
+          error: function() {
+            alert('An error occurred while processing the request.');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

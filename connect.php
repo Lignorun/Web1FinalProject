@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$dbname = "game_db";
+$dbname = "quiz_db";
 $username = "root";
 $password = "";
 
