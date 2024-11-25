@@ -2,7 +2,6 @@
 require_once("connect.php");
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['login_active'])) {
   header("Location: index.php");
   exit();
@@ -35,6 +34,9 @@ if (!isset($_SESSION['login_active'])) {
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
           </ul>
 
           <div class="d-flex">
@@ -43,6 +45,7 @@ if (!isset($_SESSION['login_active'])) {
         </div>
       </div>
     </nav>
+
 
     <div class="container">
 
@@ -79,7 +82,12 @@ if (!isset($_SESSION['login_active'])) {
     </div>
   </section>
 
+  <div>
+    <?php include 'footer.php'; ?>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 
 </html>
