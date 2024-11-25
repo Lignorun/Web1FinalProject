@@ -9,7 +9,7 @@
                         <img src="img/linkedin.png" alt="Diego Lins Ferreira LinkedIn" class="linkedin-icon">
                         Diego Lins Ferreira
                     </a>,
-                    <a href="https://www.linkedin.com/in/jaspreet-singh-abc123/" target="_blank">
+                    <a href="https://www.linkedin.com/in/jaspreet-singh-8a037230b/" target="_blank">
                         <img src="img/linkedin.png" alt="Jaspreet Singh LinkedIn" class="linkedin-icon">
                         Jaspreet Singh
                     </a>,
