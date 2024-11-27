@@ -3,6 +3,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS quiz_db;
+
+-- Use the created database
+USE quiz_db;
+
 
 CREATE TABLE `answers` (
   `aid` int(11) NOT NULL,

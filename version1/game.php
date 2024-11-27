@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($lives <= 0) {
         echo "Game Over!";
         // Save the result to the database
-        $conn = new mysqli('localhost', 'root', '', 'game_db');
+        $conn = new mysqli('localhost', 'root', '', 'quiz_db');
         $stmt = $conn->prepare("INSERT INTO game_results (user_id, result, lives_used) VALUES (?, 'game over', ?)");
         $stmt->bind_param('ii', $user_id, 6 - $lives);
         $stmt->execute();
