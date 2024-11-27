@@ -1,17 +1,7 @@
 <?php
 
-function santize($data)
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+function sanitize($input) {
+  global $conn; // Assuming $conn is the connection object
+  return mysqli_real_escape_string($conn, trim($input)); // Sanitizing input
 }
 
-function totalquestion($conn)
-{
-  $sql = "SELECT * FROM questions";
-  $result = mysqli_query($conn, $sql);
-
-  return mysqli_num_rows($result);
-}

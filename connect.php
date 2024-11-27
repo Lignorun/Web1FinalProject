@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost";
-$dbname = "quiz_db";
-$username = "root";
-$password = "";
+$servername = "localhost";   // MySQL server
+$username = "root";          // MySQL username (default in XAMPP is root)
+$password = "";              // MySQL password (default in XAMPP is empty)
+$dbname = "game_db";       // Your database name
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
-
-
